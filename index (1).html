@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VisaGlobe — World Visa Portal</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Visa<span>Globe</span></div>
+  <div class="nav-links">
+    <a href="#checker">Eligibility Checker</a>
+    <a href="#cost">Cost Calculator</a>
+    <a href="#countries">Countries</a>
+    <a href="#about">About</a>
+  </div>
+  <button class="nav-cta">Apply Now</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Travel the World with <span>Confidence</span></h1>
+  <p>Check visa requirements, calculate costs, and get document guides for 32+ countries — all in one place.</p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">32+</div>
+      <div class="stat-label">Countries</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Free</div>
+      <div class="stat-label">To Use</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Instant</div>
+      <div class="stat-label">Results</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ELIGIBILITY CHECKER -->
+<div class="section" id="checker">
+  <div class="section-title">Visa Eligibility Checker</div>
+  <div class="section-sub">Select your passport country and destination to check your visa requirement instantly.</div>
+
+  <div class="checker-card">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Your Passport (From)</label>
+        <select id="fromCountry">
+          <option value="">Select your country</option>
+          <option value="IN">India</option>
+          <option value="US">United States</option>
+          <option value="GB">United Kingdom</option>
+          <option value="DE">Germany</option>
+          <option value="CN">China</option>
+          <option value="AU">Australia</option>
+          <option value="CA">Canada</option>
+          <option value="JP">Japan</option>
+          <option value="BR">Brazil</option>
+          <option value="PK">Pakistan</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Destination Country (To)</label>
+        <select id="toCountry">
+          <option value="">Select destination</option>
+          <option value="US">United States</option>
+          <option value="GB">United Kingdom</option>
+          <option value="FR">France</option>
+          <option value="TH">Thailand</option>
+          <option value="AE">UAE (Dubai)</option>
+          <option value="JP">Japan</option>
+          <option value="SG">Singapore</option>
+          <option value="CA">Canada</option>
+          <option value="AU">Australia</option>
+          <option value="NP">Nepal</option>
+          <option value="MV">Maldives</option>
+          <option value="ID">Indonesia (Bali)</option>
+          <option value="TR">Turkey</option>
+          <option value="EG">Egypt</option>
+          <option value="KE">Kenya</option>
+          <option value="GR">Greece</option>
+          <option value="CH">Switzerland</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Travel Purpose</label>
+        <select id="purpose">
+          <option value="tourism">Tourism</option>
+          <option value="business">Business</option>
+          <option value="study">Study</option>
+          <option value="work">Work</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Duration (days)</label>
+        <input type="number" id="duration" placeholder="e.g. 14" min="1" max="365" value="14"/>
+      </div>
+    </div>
+    <button class="check-btn" onclick="checkEligibility()">Check Visa Requirement</button>
+    <div id="resultBox" class="result-box">
+      <div class="result-status" id="resultStatus"></div>
+      <div class="result-desc" id="resultDesc"></div>
+      <div class="result-tags" id="resultTags"></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- COST CALCULATOR -->
+<div class="section" id="cost">
+  <div class="section-title">Visa Cost Calculator</div>
+  <div class="section-sub">Select a destination and number of travellers to see the estimated visa fee range.</div>
+
+  <div class="checker-card">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Destination Country</label>
+        <select id="costDestination">
+          <option value="">Select destination</option>
+          <option value="US">United States</option>
+          <option value="GB">United Kingdom</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+          <option value="IT">Italy</option>
+          <option value="ES">Spain</option>
+          <option value="GR">Greece</option>
+          <option value="CH">Switzerland</option>
+          <option value="TH">Thailand</option>
+          <option value="JP">Japan</option>
+          <option value="SG">Singapore</option>
+          <option value="KR">South Korea</option>
+          <option value="CN">China</option>
+          <option value="NP">Nepal</option>
+          <option value="MV">Maldives</option>
+          <option value="ID">Indonesia (Bali)</option>
+          <option value="MY">Malaysia</option>
+          <option value="VN">Vietnam</option>
+          <option value="AE">UAE (Dubai)</option>
+          <option value="TR">Turkey</option>
+          <option value="SA">Saudi Arabia</option>
+          <option value="CA">Canada</option>
+          <option value="BR">Brazil</option>
+          <option value="MX">Mexico</option>
+          <option value="AR">Argentina</option>
+          <option value="AU">Australia</option>
+          <option value="NZ">New Zealand</option>
+          <option value="ZA">South Africa</option>
+          <option value="KE">Kenya</option>
+          <option value="EG">Egypt</option>
+          <option value="MA">Morocco</option>
+          <option value="TZ">Tanzania</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Number of Travellers</label>
+        <input type="number" id="costTravelers" placeholder="e.g. 2" min="1" max="20" value="1"/>
+      </div>
+    </div>
+    <button class="check-btn" onclick="calculateCost()">Calculate Visa Cost</button>
+    <div id="costResult" class="cost-result"></div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- COUNTRIES -->
+<div class="section" id="countries">
+  <div class="section-title">Country Visa Guide</div>
+  <div class="section-sub">Browse visa requirements by region. Click any country card for full details.</div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search countries..." oninput="filterCountries()"/>
+  </div>
+
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="filterByRegion('all', this)">All</button>
+    <button class="filter-btn" onclick="filterByRegion('Asia', this)">Asia</button>
+    <button class="filter-btn" onclick="filterByRegion('Europe', this)">Europe</button>
+    <button class="filter-btn" onclick="filterByRegion('Americas', this)">Americas</button>
+    <button class="filter-btn" onclick="filterByRegion('Middle East', this)">Middle East</button>
+    <button class="filter-btn" onclick="filterByRegion('Africa', this)">Africa</button>
+    <button class="filter-btn" onclick="filterByRegion('Oceania', this)">Oceania</button>
+  </div>
+
+  <div class="country-grid" id="countryGrid"></div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <div class="about-inner">
+    <div class="section-title">Why VisaGlobe?</div>
+    <p class="about-intro">VisaGlobe simplifies international travel planning. Get instant visa info and cost estimates for 32+ countries — completely free, no sign-up needed.</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-icon">⚡</div>
+        <div class="about-title">Instant Results</div>
+        <div class="about-desc">Get visa status in seconds</div>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">💰</div>
+        <div class="about-title">Cost Calculator</div>
+        <div class="about-desc">Know the visa fee before you go</div>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">📄</div>
+        <div class="about-title">Document Guide</div>
+        <div class="about-desc">Know exactly what to prepare</div>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🌍</div>
+        <div class="about-title">32+ Countries</div>
+        <div class="about-desc">Covering major destinations</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <div class="modal-flag" id="mFlag"></div>
+    <div class="modal-country" id="mName"></div>
+    <div class="modal-region" id="mRegion"></div>
+    <div class="modal-info-grid" id="mInfoGrid"></div>
+    <div class="modal-docs-title">Required Documents</div>
+    <div id="mDocs"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Built by a Web Technology Student &nbsp;|&nbsp; <span>VisaGlobe</span> &copy; 2025
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
